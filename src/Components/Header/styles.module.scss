@@ -1,0 +1,12 @@
+@import '@globStyles/vars.scss';
+
+.headerContainer {
+  width: 100%;
+  background-color: $secondary-color;
+}
+
+.header {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}

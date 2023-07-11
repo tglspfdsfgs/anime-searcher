@@ -1,0 +1,32 @@
+@import '@globStyles/vars.scss';
+
+.formWrapper {
+  padding-top: 14px;
+  padding-bottom: 14px;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.searchField {
+  height: 100%;
+  width: 200px;
+  box-sizing: border-box;
+  padding: 8px 16px 8px 16px;
+  background-color: $secondary-color;
+  border: 2px solid $primary-color;
+  border-radius: 25px;
+  outline: none;
+  color: white;
+
+  &:focus {
+    background-color: $primary-color;
+  }
+
+  &::placeholder {
+    color: $tertiary-color;
+  }
+
+  &::-webkit-search-cancel-button {
+    display: none;
+  }
+}
