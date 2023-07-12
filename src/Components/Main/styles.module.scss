@@ -1,0 +1,23 @@
+@import '@globStyles/vars.scss';
+
+.contentHolder {
+  @include pageCenterer;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  @media screen and (min-width: 663px) {
+    justify-content: space-between;
+    margin-top: 20px;
+    row-gap: 20px;
+  }
+  @media screen and (min-width: 727px) {
+    justify-content: space-around;
+  }
+
+  @media screen and (min-width: 1052px) {
+    row-gap: 0;
+    margin-top: 0;
+  }
+}
+
