@@ -1,0 +1,21 @@
+@import '@globStyles/vars.scss';
+
+.ghLogo {
+  margin: 5px 0 5px 0;
+  width: 32px;
+  height: 32px;
+}
+
+.ghLogoFiller {
+  fill: $tertiary-color;
+}
+
+.ghLink:hover {
+  .ghLogoFiller {
+    fill: lighten-color($tertiary-color, 0.2);
+  }
+}
+
+.ghLink:active {
+  transform: scale(1.05);
+}

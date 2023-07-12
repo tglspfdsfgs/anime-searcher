@@ -1,0 +1,12 @@
+@import '@globStyles/vars.scss';
+
+.footerContainer {
+  width: 100%;
+  background-color: $secondary-color;
+}
+
+.footer {
+  @include pageCenterer;
+  display: flex;
+  flex-direction: row-reverse;
+}
