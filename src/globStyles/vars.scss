@@ -12,3 +12,17 @@ $low-score: red;
   margin-left: auto;
   margin-right: auto;
 }
+
+//Functions
+@function lighten-color($color, $amount) {
+  $red: red($color);
+  $green: green($color);
+  $blue: blue($color);
+  $alpha: alpha($color);
+
+  $new-red: $red + (255 - $red) * $amount;
+  $new-green: $green + (255 - $green) * $amount;
+  $new-blue: $blue + (255 - $blue) * $amount;
+
+  @return rgba($new-red, $new-green, $new-blue, $alpha);
+}
