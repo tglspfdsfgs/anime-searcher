@@ -8,6 +8,7 @@ export default defineConfig({
     alias: {
       '@globStyles': path.resolve(__dirname, './src/globStyles'),
       '@Components': path.resolve(__dirname, './src/Components'),
+      '@Routes': path.resolve(__dirname, './src/Routes'),
     },
   },
   plugins: [react()],
