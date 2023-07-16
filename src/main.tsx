@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import '@globStyles/normalize.scss';
 import '@globStyles/global.scss';
-import Root from '@Routes/Root';
-import ErrorPage from '@Routes/ErrorPage';
+import Root from '@routes/Root';
+import ErrorPage from './routes/ErrorPage';
 import {
   createBrowserRouter,
   createRoutesFromElements,

@@ -1,5 +1,5 @@
 import styles from './styles.module.scss';
-import GitHubLink from '@Components/GitHubLink';
+import GitHubLink from '@components/GitHubLink';
 
 export default function Footer() {
   return (

@@ -20,8 +20,8 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "@Components/*": ["./src/Components/*"],
-      "@Routes/*": ["./src/Routes/*"]
+      "@components/*": ["./src/components/*"],
+      "@routes/*": ["./src/routes/*"]
     }
   },
   "include": ["src"],

@@ -1,5 +1,5 @@
 import styles from './styles.module.scss';
-import Searchbar from '@Components/Searchbar';
+import Searchbar from '@components/Searchbar';
 
 export default function Header() {
   return (
