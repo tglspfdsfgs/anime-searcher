@@ -7,10 +7,15 @@ $medium-score: orange;
 $low-score: red;
 
 //Reusable styles
-@mixin pageCenterer {
+@mixin pageWrapper($isContentHolder: false) {
   width: 70%;
   margin-left: auto;
   margin-right: auto;
+  @if $isContentHolder==true {
+    flex: 1 0 auto;
+  } @else {
+    flex-shrink: 0;
+  }
 }
 
 @mixin errorBlock {

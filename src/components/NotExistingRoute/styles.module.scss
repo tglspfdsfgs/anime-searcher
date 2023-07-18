@@ -1,6 +1,7 @@
 @import '@globStyles/vars.scss';
 
 .errorBlock {
+  @include pageWrapper(true);
   @include errorBlock;
 }
 

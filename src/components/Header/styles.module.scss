@@ -6,5 +6,5 @@
 }
 
 .header {
-  @include pageCenterer;
+  @include pageWrapper;
 }

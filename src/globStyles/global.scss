@@ -17,4 +17,6 @@ img {
   min-height: 100%;
   font-family: sans-serif;
   background-color: $primary-color;
+  display: flex;
+  flex-direction: column;
 }

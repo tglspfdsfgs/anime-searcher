@@ -6,7 +6,7 @@
 }
 
 .footer {
-  @include pageCenterer;
+  @include pageWrapper;
   display: flex;
   flex-direction: row-reverse;
 }
