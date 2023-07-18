@@ -1,0 +1,9 @@
+@import '@globStyles/vars.scss';
+
+.errorBlock {
+  @include errorBlock;
+}
+
+.errorHeader {
+  @include errorHeader;
+}
