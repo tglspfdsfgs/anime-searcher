@@ -1,5 +1,4 @@
-import Header from '@components/Header';
-import Footer from '@components/Footer';
+import styles from './styles.module.scss';
 import { useRouteError, isRouteErrorResponse } from 'react-router-dom';
 
 export default function ErrorPage() {
@@ -18,15 +17,13 @@ export default function ErrorPage() {
 
   return (
     <>
-      <Header />
-      <div style={{ fontSize: 36, color: 'white', textAlign: 'center' }}>
-        <h1>Oops!</h1>
+      <div className={styles.errorBlock}>
+        <h1 className={styles.errorHeader}>Oops!</h1>
         <p>Sorry, an unexpected error has occurred.</p>
         <p>
           <i>{errorMessage}</i>
         </p>
       </div>
-      <Footer />
     </>
   );
 }

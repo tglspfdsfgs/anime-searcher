@@ -13,6 +13,16 @@ $low-score: red;
   margin-right: auto;
 }
 
+@mixin errorBlock {
+  font-size: 36px;
+  color: white;
+  text-align: center;
+}
+@mixin errorHeader {
+  margin: 0;
+  padding-top: 98px;
+}
+
 //Functions
 @function lighten-color($color, $amount) {
   $red: red($color);
