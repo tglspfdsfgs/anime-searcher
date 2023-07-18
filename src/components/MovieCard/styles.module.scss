@@ -4,28 +4,30 @@
   font-size: 15px;
   width: 80%;
   max-height: 550px;
-  margin: 16px;
+  margin-bottom: 16px;
   overflow: hidden;
   position: relative;
   background-color: $secondary-color;
   box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.5);
   border-radius: 4px;
 
-  @media screen and (min-width: 570px) {
-    width: 320px;
-  }
-
-  @media screen and (min-width: 663px) {
-    width: 35%;
-  }
-
-  @media screen and (min-width: 1052px) {
-    width: 200px;
-  }
-
   &:hover .overview {
     top: 0%;
     opacity: .82;
+  }
+
+  @media screen and (min-width: $mobileL) {
+    font-size: 13px;
+    max-height: unset;
+    width: 48%;
+  }
+  @media screen and (min-width: $tablet) {
+    font-size: 15px;
+    width: 32%;
+  }
+
+  @media screen and (min-width: $laptop) {
+    width: 23%;
   }
 }
 
@@ -49,10 +51,6 @@
   min-height: 70px;
   display: flex;
   justify-content: space-between;
-
-  @media screen and (min-width: 663px) {
-    padding: 5px 10px 5px 10px;
-  }
 }
 
 .title {
@@ -63,11 +61,11 @@
 }
 
 .score {
-  width: 25px;
-  height: 25px;
-  padding: 4px 8px 4px 8px;
-  box-sizing: content-box;
-  line-height: 1.5;
+  width: 42px;
+  height: 32px;
+  flex-shrink: 0;
+  text-align: center;
+  line-height: 32px;
   font-weight: bold;
   color: $medium-score;
   background-color: $primary-color;

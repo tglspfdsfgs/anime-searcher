@@ -6,15 +6,25 @@ $high-score: lightgreen;
 $medium-score: orange;
 $low-score: red;
 
+
+//viewports
+$mobileS: 320px;
+$mobileL: 425px;
+$tablet: 768px;
+$laptop: 1024px;
+
 //Reusable styles
 @mixin pageWrapper($isContentHolder: false) {
-  width: 70%;
+  width: 85%;
   margin-left: auto;
   margin-right: auto;
   @if $isContentHolder==true {
     flex: 1 0 auto;
   } @else {
     flex-shrink: 0;
+  }
+  @media screen and (min-width: $laptop) {
+    max-width: 1296px;
   }
 }
 
