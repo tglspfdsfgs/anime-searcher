@@ -1,11 +1,11 @@
 import styles from './styles.module.scss';
 
-export default function MovieCard() {
+export default function AnimeCard() {
   return (
     <article className={styles.movieCard}>
       <img src="notavaliable.jpg" alt="Poster not avaliable" />
       <div className={styles.info}>
-        <h3 className={styles.title}>Movie title</h3>
+        <h3 className={styles.title}>Title</h3>
         <div className={styles.score}>0.0</div>
       </div>
       <div className={styles.overview}>
