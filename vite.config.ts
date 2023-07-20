@@ -9,6 +9,8 @@ export default defineConfig({
       '@globStyles': path.resolve(__dirname, './src/globStyles'),
       '@components': path.resolve(__dirname, './src/components'),
       '@routes': path.resolve(__dirname, './src/routes'),
+      '@utils': path.resolve(__dirname, './src/utils'),
+      '@interfaces': path.resolve(__dirname, './src/interfaces'),
     },
   },
   plugins: [react()],
