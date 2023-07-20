@@ -1,9 +1,10 @@
 import styles from './styles.module.scss';
+import { Form } from 'react-router-dom';
 
 export default function Searchbar() {
   return (
     <div className={styles.formWrapper}>
-      <form action="search" method="get">
+      <Form>
         <input
           className={styles.searchField}
           type="search"
@@ -11,7 +12,7 @@ export default function Searchbar() {
           autoComplete="off"
           placeholder="Search"
         />
-      </form>
+      </Form>
     </div>
   );
 }
