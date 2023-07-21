@@ -4,7 +4,7 @@ import Footer from '@components/Footer';
 import { ResObect } from '@interfaces/response';
 
 export default function Root() {
-  const res = useLoaderData() as ResObect;
+  const res = useLoaderData() as ResObect | null;
   return (
     <>
       <Header />
