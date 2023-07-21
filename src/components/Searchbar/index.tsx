@@ -1,9 +1,11 @@
 import styles from './styles.module.scss';
-import { Form, useLocation } from 'react-router-dom';
+import { Form, useLocation, useSubmit } from 'react-router-dom';
 
 export default function Searchbar() {
+  const submit = useSubmit();
   const { search } = useLocation();
   const searchParam = new URLSearchParams(search).get('q') || '';
+
   return (
     <div className={styles.formWrapper}>
       <Form>
@@ -14,6 +16,9 @@ export default function Searchbar() {
           autoComplete="off"
           placeholder="Search"
           defaultValue={searchParam}
+          onChange={({ target }) => {
+            submit([['q', target.value]]);
+          }}
         />
       </Form>
     </div>
