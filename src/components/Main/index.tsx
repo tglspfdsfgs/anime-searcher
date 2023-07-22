@@ -18,5 +18,10 @@ export default function Main() {
       />
     ));
   }
-  return <main className={styles.contentHolder}>{cardList}</main>;
+  return (
+    <>
+      <main className={styles.contentHolder}>{cardList}</main>
+      <div className={styles.pageFiller}></div>
+    </>
+  );
 }

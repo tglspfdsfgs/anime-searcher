@@ -1,7 +1,7 @@
 @import '@globStyles/vars.scss';
 
 .contentHolder {
-  @include pageWrapper(true);
+  @include pageWrapper;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -12,3 +12,6 @@
   }
 }
 
+.pageFiller {
+  @include pageWrapper(true)
+}
