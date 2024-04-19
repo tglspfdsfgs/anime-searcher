@@ -1,10 +1,12 @@
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useOutletContext } from 'react-router-dom';
 import styles from './styles.module.scss';
 import AnimeCard from '@components/AnimeCard';
 import { ResObect } from '@interfaces/response';
 
 export default function Main() {
   const res = useLoaderData() as ResObect | null;
+  const toggleModal: () => void = useOutletContext();
+
   let cardList;
   if (res?.data) {
     res.data = res.data.filter((anime) => {
@@ -15,6 +17,7 @@ export default function Main() {
     }
     cardList = res.data.map((item, i) => (
       <AnimeCard
+        handleModalToggling={toggleModal}
         key={i}
         image={item.images.jpg?.image_url}
         score={item.score}

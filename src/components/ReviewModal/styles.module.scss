@@ -1,0 +1,146 @@
+@import '@globStyles/vars.scss';
+
+.modalLayer {
+    top: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    opacity: 0.5;
+}
+
+.reviewForm {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    height: 75%;
+    width: 85%;
+    top: 68px;
+    position: fixed;
+    background-color: $secondary-color;
+    box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    @include pageWrapper;
+}
+
+.reviewContainer {
+    @include pageWrapper;
+}
+
+.titleName {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: sans-serif;
+    line-height: 1.15;
+    color: white;
+}
+
+.textField {
+    height: 100%;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    padding: 8px 16px 8px 16px;
+    background-color: $secondary-color;
+    border: 2px solid $primary-color;
+    border-radius: 10px;
+    outline: none;
+    resize: none;
+    color: white;
+  
+    &:focus {
+      background-color: $primary-color;
+    }
+  
+    &::placeholder {
+      color: $tertiary-color;
+    }
+}
+.buttonLine {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+}
+
+.cancelReview {
+    width: 32%;
+    box-sizing: border-box;
+    padding: 8px 16px 8px 16px;
+    background-color: $primary-color;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    color: white;
+
+    &:hover {
+        background-color: lighten-color($primary-color, 0.2);
+    }
+
+    &:active {
+        transform: scale(1.006);
+    }
+}
+.submitReview {
+    width: 65%;
+    margin-right: 3%;
+    box-sizing: border-box;
+    padding: 8px 16px 8px 16px;
+    background-color: $tertiary-color;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    color: white;
+
+    &:hover {
+        background-color: lighten-color($tertiary-color, 0.2);
+    }
+
+    &:active {
+        transform: scale(1.006);
+    }
+}
+
+.scoreLabel {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: white;
+}
+
+.scoreInput {
+    width: 82px;
+    height: 32px;
+    box-sizing: border-box;
+    padding: 8px 10px 8px 10px;
+    text-align: left;
+    line-height: 32px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    border: 2px solid $primary-color;
+    color: $medium-score;
+    background-color: $secondary-color;
+    outline: none;
+
+    &:focus {
+      background-color: $primary-color;
+    }
+}
+
+.scoreInput:not(:focus)::-webkit-inner-spin-button,
+.scoreInput:not(:focus)::-webkit-outer-spin-button,
+.scoreInput:not(:focus)::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+.scoreInput:not(:focus) {
+    -moz-appearance: textfield; /* Для Firefox */
+}

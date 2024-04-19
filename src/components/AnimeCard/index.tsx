@@ -5,9 +5,10 @@ interface Props {
   score: number | null;
   title: string;
   overview: string | null;
+  handleModalToggling: () => void;
 }
 
-export default function AnimeCard({ image, score, title, overview }: Props) {
+export default function AnimeCard({ image, score, title, overview, handleModalToggling }: Props) {
   let scoreHighlight = '';
 
   if (score !== null) {
@@ -35,7 +36,7 @@ export default function AnimeCard({ image, score, title, overview }: Props) {
         <h3 className={styles.overviewHeader}>Overview</h3>
         <p className={styles.overviewText}>{overview}</p>
       </div>
-      <button className={styles.addReview}>
+      <button onPointerUp={handleModalToggling} className={styles.addReview}>
         <span className={styles.addReviewText}>Write review</span>
       </button>
     </article>
