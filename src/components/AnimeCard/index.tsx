@@ -35,6 +35,9 @@ export default function AnimeCard({ image, score, title, overview }: Props) {
         <h3 className={styles.overviewHeader}>Overview</h3>
         <p className={styles.overviewText}>{overview}</p>
       </div>
+      <button className={styles.addReview}>
+        <span className={styles.addReviewText}>Write review</span>
+      </button>
     </article>
   );
 }
