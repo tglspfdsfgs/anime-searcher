@@ -7,7 +7,9 @@ export default function Main() {
   const res = useOutletContext() as ResObect | null;
   let cardList;
   if (res?.data) {
-    res.data.pop();
+    if (res.data.length === 25) {
+      res.data.pop();
+    }
     cardList = res.data.map((item, i) => (
       <AnimeCard
         key={i}
