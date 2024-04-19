@@ -31,7 +31,7 @@ export default function AnimeCard({ image, score, title, overview }: Props) {
         <h3 className={styles.title}>{title}</h3>
         <div className={styles.score + ' ' + scoreHighlight}>{score !== null ? score : 'N/A'}</div>
       </div>
-      <div className={styles.overview}>
+      <div tabIndex={-1} className={styles.overview}>
         <h3 className={styles.overviewHeader}>Overview</h3>
         <p className={styles.overviewText}>{overview}</p>
       </div>
