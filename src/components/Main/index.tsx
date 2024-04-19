@@ -7,6 +7,9 @@ export default function Main() {
   const res = useOutletContext() as ResObect | null;
   let cardList;
   if (res?.data) {
+    res.data = res.data.filter((anime) => {
+      return anime?.rating ? !/Rx|Hentai/i.test(anime.rating) : true;
+    });
     if (res.data.length === 25) {
       res.data.pop();
     }
