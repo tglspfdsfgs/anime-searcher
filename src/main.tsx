@@ -16,9 +16,9 @@ import loader from '@utils/loader';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Root />} errorElement={<ErrorPage />} loader={loader}>
+    <Route path="/" element={<Root />} errorElement={<ErrorPage />}>
       <Route path="*" element={<NotExistingRoute />} />
-      <Route index element={<Main />} />
+      <Route index element={<Main />} loader={loader} />
     </Route>
   )
 );

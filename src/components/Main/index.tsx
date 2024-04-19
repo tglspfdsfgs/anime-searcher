@@ -1,10 +1,10 @@
-import { useOutletContext } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 import styles from './styles.module.scss';
 import AnimeCard from '@components/AnimeCard';
 import { ResObect } from '@interfaces/response';
 
 export default function Main() {
-  const res = useOutletContext() as ResObect | null;
+  const res = useLoaderData() as ResObect | null;
   let cardList;
   if (res?.data) {
     res.data = res.data.filter((anime) => {
