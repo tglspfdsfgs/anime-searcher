@@ -17,7 +17,7 @@ export default function Searchbar() {
           placeholder="Search"
           defaultValue={searchParam}
           onChange={({ target }) => {
-            submit([['q', target.value]]);
+            submit([['q', target.value]], { replace: true });
           }}
         />
       </Form>
