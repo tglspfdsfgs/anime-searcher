@@ -2,10 +2,11 @@ import { useLoaderData, useOutletContext } from 'react-router-dom';
 import styles from './styles.module.scss';
 import AnimeCard from '@components/AnimeCard';
 import { ResObect } from '@interfaces/response';
+import { modalInfo } from '@routes/Root';
 
 export default function Main() {
   const res = useLoaderData() as ResObect | null;
-  const toggleModal: () => void = useOutletContext();
+  const modalCB: React.Dispatch<React.SetStateAction<modalInfo>> = useOutletContext();
 
   let cardList;
   if (res?.data) {
@@ -17,7 +18,7 @@ export default function Main() {
     }
     cardList = res.data.map((item, i) => (
       <AnimeCard
-        handleModalToggling={toggleModal}
+        modalCallback={modalCB}
         key={i}
         image={item.images.jpg?.image_url}
         score={item.score}

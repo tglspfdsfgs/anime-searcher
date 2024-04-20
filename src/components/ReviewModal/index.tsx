@@ -1,14 +1,43 @@
 import styles from './styles.module.scss';
+import { modalInfo } from '@routes/Root';
+
 interface Props {
-  toggleModal: () => void;
+  modalCallback: React.Dispatch<React.SetStateAction<modalInfo>>;
+  modalData: modalInfo;
 }
-export default function ReviewModal({ toggleModal }: Props) {
+
+export default function ReviewModal({ modalCallback, modalData }: Props) {
+  const closeModal = () => {
+    modalCallback((prev) => {
+      return { ...prev, open: !prev.open };
+    });
+  };
   return (
     <>
-      <div className={styles.modalLayer}></div>
+      <div onPointerUp={closeModal} className={styles.modalLayer}></div>
       <div className={styles.reviewContainer}>
-        <form className={styles.reviewForm}>
-          <legend className={styles.titleName}>Title name</legend>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target as HTMLFormElement);
+
+            const reviewsString = localStorage.getItem('reviews');
+            let reviews = reviewsString ? JSON.parse(reviewsString) : {};
+            reviews = {
+              ...reviews,
+              [modalData.title]: {
+                img: modalData.img,
+                review: formData.get('review'),
+                score: formData.get('score'),
+              },
+            };
+            localStorage.setItem('reviews', JSON.stringify(reviews));
+
+            closeModal();
+          }}
+          className={styles.reviewForm}
+        >
+          <legend className={styles.titleName}>{modalData.title}</legend>
           <textarea
             required
             name="review"
@@ -32,7 +61,7 @@ export default function ReviewModal({ toggleModal }: Props) {
             <button className={styles.submitReview} type="submit">
               Submit
             </button>
-            <button onPointerUp={toggleModal} className={styles.cancelReview} type="button">
+            <button onPointerUp={closeModal} className={styles.cancelReview} type="button">
               Cancel
             </button>
           </div>

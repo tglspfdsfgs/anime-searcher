@@ -1,14 +1,15 @@
 import styles from './styles.module.scss';
+import { modalInfo } from '@routes/Root';
 
 interface Props {
   image?: string | null;
   score: number | null;
   title: string;
   overview: string | null;
-  handleModalToggling: () => void;
+  modalCallback: React.Dispatch<React.SetStateAction<modalInfo>>;
 }
 
-export default function AnimeCard({ image, score, title, overview, handleModalToggling }: Props) {
+export default function AnimeCard({ image, score, title, overview, modalCallback }: Props) {
   let scoreHighlight = '';
 
   if (score !== null) {
@@ -36,7 +37,12 @@ export default function AnimeCard({ image, score, title, overview, handleModalTo
         <h3 className={styles.overviewHeader}>Overview</h3>
         <p className={styles.overviewText}>{overview}</p>
       </div>
-      <button onPointerUp={handleModalToggling} className={styles.addReview}>
+      <button
+        onPointerUp={() => {
+          modalCallback({ open: true, title: title, img: image || '' });
+        }}
+        className={styles.addReview}
+      >
         <span className={styles.addReviewText}>Write review</span>
       </button>
     </article>
