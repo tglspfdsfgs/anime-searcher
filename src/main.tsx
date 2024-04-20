@@ -13,12 +13,15 @@ import {
   RouterProvider,
 } from 'react-router-dom';
 import mainLoader from '@utils/mainLoader';
+import Reviews from '@components/Reviews';
+import reviewsLoader from '@utils/reviewsLoader';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />} errorElement={<ErrorPage />}>
       <Route path="*" element={<NotExistingRoute />} />
       <Route index element={<Main />} loader={mainLoader} />
+      <Route path="/reviews" element={<Reviews />} loader={reviewsLoader} />
     </Route>
   )
 );
