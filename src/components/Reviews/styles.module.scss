@@ -1,0 +1,17 @@
+@import '@globStyles/vars.scss';
+
+.contentHolder {
+  @include pageWrapper;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-top: 16px;
+
+  @media screen and (min-width: $mobileL) {
+    justify-content: space-between;
+  }
+}
+
+.pageFiller {
+  @include pageWrapper(true)
+}

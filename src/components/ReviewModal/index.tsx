@@ -1,5 +1,6 @@
 import styles from './styles.module.scss';
 import { modalInfo } from '@routes/Root';
+import { reviewsStorage } from '@interfaces/reviewsStorage';
 
 interface Props {
   modalCallback: React.Dispatch<React.SetStateAction<modalInfo>>;
@@ -22,13 +23,13 @@ export default function ReviewModal({ modalCallback, modalData }: Props) {
             const formData = new FormData(e.target as HTMLFormElement);
 
             const reviewsString = localStorage.getItem('reviews');
-            let reviews = reviewsString ? JSON.parse(reviewsString) : {};
+            let reviews: reviewsStorage = reviewsString ? JSON.parse(reviewsString) : {};
             reviews = {
               ...reviews,
               [modalData.title]: {
                 img: modalData.img,
-                review: formData.get('review'),
-                score: formData.get('score'),
+                review: String(formData.get('review')),
+                score: Number(formData.get('score')),
               },
             };
             localStorage.setItem('reviews', JSON.stringify(reviews));
