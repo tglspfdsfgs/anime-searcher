@@ -16,6 +16,9 @@ export default function Searchbar() {
           autoComplete="off"
           placeholder="Search"
           defaultValue={searchParam}
+          onFocus={({ target }) => {
+            submit([['q', target.value]], { replace: true });
+          }}
           onChange={({ target }) => {
             submit([['q', target.value]], { replace: true });
           }}
