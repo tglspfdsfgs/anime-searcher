@@ -12,13 +12,13 @@ import {
   Route,
   RouterProvider,
 } from 'react-router-dom';
-import loader from '@utils/loader';
+import mainLoader from '@utils/mainLoader';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />} errorElement={<ErrorPage />}>
       <Route path="*" element={<NotExistingRoute />} />
-      <Route index element={<Main />} loader={loader} />
+      <Route index element={<Main />} loader={mainLoader} />
     </Route>
   )
 );
