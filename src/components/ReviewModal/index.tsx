@@ -1,6 +1,7 @@
 import styles from './styles.module.scss';
 import { modalInfo } from '@routes/Root';
 import { reviewsStorage } from '@interfaces/reviewsStorage';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
   modalCallback: React.Dispatch<React.SetStateAction<modalInfo>>;
@@ -8,11 +9,14 @@ interface Props {
 }
 
 export default function ReviewModal({ modalCallback, modalData }: Props) {
+  const navigate = useNavigate();
+
   const closeModal = () => {
     modalCallback((prev) => {
       return { ...prev, open: !prev.open };
     });
   };
+
   return (
     <>
       <div onPointerUp={closeModal} className={styles.modalLayer}></div>
@@ -35,6 +39,7 @@ export default function ReviewModal({ modalCallback, modalData }: Props) {
             localStorage.setItem('reviews', JSON.stringify(reviews));
 
             closeModal();
+            navigate('/reviews');
           }}
           className={styles.reviewForm}
         >
