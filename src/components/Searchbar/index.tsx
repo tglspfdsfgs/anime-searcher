@@ -1,7 +1,8 @@
+import { forwardRef } from 'react';
 import styles from './styles.module.scss';
 import { Form, useLocation, useSubmit } from 'react-router-dom';
 
-export default function Searchbar() {
+const Searchbar = forwardRef<HTMLInputElement>((_props, ref) => {
   const submit = useSubmit();
   const { search } = useLocation();
   const searchParam = new URLSearchParams(search).get('q') || '';
@@ -10,6 +11,7 @@ export default function Searchbar() {
     <div className={styles.formWrapper}>
       <Form>
         <input
+          ref={ref}
           className={styles.searchField}
           type="search"
           name="q"
@@ -26,4 +28,6 @@ export default function Searchbar() {
       </Form>
     </div>
   );
-}
+});
+
+export default Searchbar;
