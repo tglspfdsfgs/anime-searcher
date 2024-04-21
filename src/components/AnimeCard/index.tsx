@@ -5,7 +5,6 @@ interface Props {
   image?: string | null;
   score: number | null;
   title: string;
-  id: number;
   overview: string | null;
   modalCallback: React.Dispatch<React.SetStateAction<modalInfo>>;
 }
