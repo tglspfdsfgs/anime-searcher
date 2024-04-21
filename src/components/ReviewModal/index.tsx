@@ -17,6 +17,9 @@ export default function ReviewModal({ modalCallback, modalData }: Props) {
     });
   };
 
+  const reviewsString = localStorage.getItem('reviews');
+  let reviews: reviewsStorage = reviewsString ? JSON.parse(reviewsString) : {};
+
   return (
     <>
       <div onPointerUp={closeModal} className={styles.modalLayer}></div>
@@ -26,8 +29,6 @@ export default function ReviewModal({ modalCallback, modalData }: Props) {
             e.preventDefault();
             const formData = new FormData(e.target as HTMLFormElement);
 
-            const reviewsString = localStorage.getItem('reviews');
-            let reviews: reviewsStorage = reviewsString ? JSON.parse(reviewsString) : {};
             reviews = {
               ...reviews,
               [modalData.title]: {
@@ -50,11 +51,14 @@ export default function ReviewModal({ modalCallback, modalData }: Props) {
             autoFocus
             placeholder="Share your thoughts on this anime"
             className={styles.textField}
-          ></textarea>
+          >
+            {reviews[modalData.title] ? reviews[modalData.title].review : ''}
+          </textarea>
           <label className={styles.scoreLabel}>
             Score:{' '}
             <input
               required
+              defaultValue={reviews[modalData.title] ? reviews[modalData.title].score : ''}
               name="score"
               className={styles.scoreInput}
               type="number"
