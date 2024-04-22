@@ -16,12 +16,20 @@ import mainLoader from '@utils/mainLoader';
 import Reviews from '@components/Reviews';
 import reviewsLoader from '@utils/reviewsLoader';
 
+declare global {
+  interface Window {
+    basePath: string | false;
+  }
+}
+
+window.basePath = document.location.pathname === '/' ? '' : document.location.pathname;
+
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Root />} errorElement={<ErrorPage />}>
-      <Route path="*" element={<NotExistingRoute />} />
+    <Route path={window.basePath || '/'} element={<Root />} errorElement={<ErrorPage />}>
+      <Route path={window.basePath + '/*'} element={<NotExistingRoute />} />
       <Route index element={<Main />} loader={mainLoader} />
-      <Route path="/reviews" element={<Reviews />} loader={reviewsLoader} />
+      <Route path={window.basePath + '/reviews'} element={<Reviews />} loader={reviewsLoader} />
     </Route>
   )
 );

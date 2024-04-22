@@ -1,17 +1,18 @@
 import { Link, useLocation } from 'react-router-dom';
 import styles from './styles.module.scss';
-
 interface Props {
   searchInputElement: React.MutableRefObject<HTMLInputElement | null>;
 }
 
 export default function ReviewLink({ searchInputElement }: Props) {
-  const { pathname } = useLocation();
-
-  const isReviewPage = /^\/reviews/i.test(pathname);
-  let href = '/reviews';
+  let { pathname } = useLocation();
+    console.log(`window.basePath: ` + window.basePath);
+    console.log(`pathname: ` + pathname);
+  const relativePath = `${window.basePath || ''}/reviews`;
+  const isReviewPage = new RegExp(relativePath, "i").test(pathname);
+  let href = relativePath;
   if (searchInputElement.current && isReviewPage) {
-    href = `/?q=${searchInputElement.current.value}`;
+    href = `${window.basePath || ''}/?q=${searchInputElement.current.value}`;
   }
   return (
     <Link className={styles.reviewLink + ' ' + (isReviewPage ? styles.navigated : '')} to={href}>
