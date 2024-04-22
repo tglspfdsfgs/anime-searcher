@@ -1,5 +1,7 @@
+import { reviewsStorage } from '@interfaces/reviewsStorage';
 import styles from './styles.module.scss';
 import { modalInfo } from '@routes/Root';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
   image?: string | null;
@@ -18,6 +20,8 @@ export default function AnimeCard({
   modalCallback,
   isReview = false,
 }: Props) {
+  const navigate = useNavigate();
+
   let scoreHighlight = '';
 
   if (score !== null) {
@@ -53,7 +57,18 @@ export default function AnimeCard({
       >
         <span className={styles.addReviewText}>{(isReview ? 'Change' : 'Write') + ' review'}</span>
       </button>
-      {isReview && <button className={styles.removeReview}></button>}
+      {isReview && (
+        <button
+          className={styles.removeReview}
+          onPointerUp={function () {
+            const reviewsString = localStorage.getItem('reviews');
+            const reviews: reviewsStorage = reviewsString ? JSON.parse(reviewsString) : {};
+            delete reviews[title];
+            localStorage.setItem('reviews', JSON.stringify(reviews));
+            navigate('/reviews');
+          }}
+        ></button>
+      )}
     </article>
   );
 }
