@@ -7,9 +7,17 @@ interface Props {
   title: string;
   overview: string | null;
   modalCallback: React.Dispatch<React.SetStateAction<modalInfo>>;
+  isReview?: boolean;
 }
 
-export default function AnimeCard({ image, score, title, overview, modalCallback }: Props) {
+export default function AnimeCard({
+  image,
+  score,
+  title,
+  overview,
+  modalCallback,
+  isReview = false,
+}: Props) {
   let scoreHighlight = '';
 
   if (score !== null) {
@@ -34,17 +42,18 @@ export default function AnimeCard({ image, score, title, overview, modalCallback
         <div className={styles.score + ' ' + scoreHighlight}>{score !== null ? score : 'N/A'}</div>
       </div>
       <div tabIndex={-1} className={styles.overview}>
-        <h3 className={styles.overviewHeader}>Overview</h3>
+        <h3 className={styles.overviewHeader}>{isReview ? 'Review' : 'Overview'}</h3>
         <p className={styles.overviewText}>{overview}</p>
       </div>
       <button
         onPointerUp={() => {
           modalCallback({ open: true, title: title, img: image || '' });
         }}
-        className={styles.addReview}
+        className={styles.addReview + ` ${isReview && styles.addReview_reviewBlock}`}
       >
-        <span className={styles.addReviewText}>Write review</span>
+        <span className={styles.addReviewText}>{(isReview ? 'Change' : 'Write') + ' review'}</span>
       </button>
+      {isReview && <button className={styles.removeReview}></button>}
     </article>
   );
 }

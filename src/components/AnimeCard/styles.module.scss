@@ -96,6 +96,25 @@
   color: $high-score;
 }
 
+.removeReview {
+  margin-top: 10px;
+  margin-right: 10px;
+  box-sizing: border-box;
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: red;
+  border: none;
+  border-radius: 12px;
+  background-position: 4px center;
+  background-repeat: no-repeat;
+  background-size: 22px;
+  background-image: url( './remove-review-btn.svg');
+}
+
 .addReview {
   margin-top: 10px;
   margin-right: 10px;
@@ -120,6 +139,9 @@
   background-size: 25px;
   background-image: url( './review-btn.svg');
 
+  &_reviewBlock {
+    right: 42px;
+  }
 
   &:hover {
     background-color: darkorange;
@@ -131,6 +153,10 @@
   &:active {
     background-color: coral;
   } 
+
+  &:hover .addReviewText {
+    padding-left: 18px;
+  }
 }
 
 .addReviewText {

@@ -18,6 +18,7 @@ export default function Reviews() {
         score={reviewsData[item].score}
         title={item}
         overview={reviewsData[item].review}
+        isReview={true}
       />
     );
   }
