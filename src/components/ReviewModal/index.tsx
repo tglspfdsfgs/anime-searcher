@@ -40,7 +40,7 @@ export default function ReviewModal({ modalCallback, modalData }: Props) {
             localStorage.setItem('reviews', JSON.stringify(reviews));
 
             closeModal();
-            navigate('/reviews');
+            navigate(document.location.pathname);
           }}
           className={styles.reviewForm}
         >
