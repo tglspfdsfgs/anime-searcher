@@ -112,7 +112,7 @@
   background-position: 4px center;
   background-repeat: no-repeat;
   background-size: 22px;
-  background-image: url( './remove-review-btn.svg');
+  background-image: url(/src/assets/remove-review-btn.svg);
 }
 
 .addReview {
@@ -137,7 +137,7 @@
   background-position: 4px center;
   background-repeat: no-repeat;
   background-size: 25px;
-  background-image: url( './review-btn.svg');
+  background-image: url(/src/assets/review-btn.svg);
 
   &_reviewBlock {
     right: 42px;
