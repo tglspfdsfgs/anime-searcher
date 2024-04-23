@@ -21,7 +21,7 @@ declare global {
   }
 }
 
-window.basePath = document.location.pathname === '/' ? '' : document.location.pathname;
+window.basePath = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
 
 const router = createBrowserRouter(
   createRoutesFromElements(
