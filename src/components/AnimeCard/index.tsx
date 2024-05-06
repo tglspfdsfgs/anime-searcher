@@ -65,7 +65,7 @@ export default function AnimeCard({
             const reviews: reviewsStorage = reviewsString ? JSON.parse(reviewsString) : {};
             delete reviews[title];
             localStorage.setItem('reviews', JSON.stringify(reviews));
-            navigate('/reviews');
+            navigate(`${window.basePath || ''}/reviews`);
           }}
         ></button>
       )}
